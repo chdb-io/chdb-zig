@@ -375,10 +375,14 @@ pub const Iterator = struct {
         const line = self.nextRow() orelse return null;
 
         const arena = try self.getArenaAllocator();
+        errdefer {
+            arena.deinit();
+            self.allocator.destroy(arena);
+        }
 
-        const parsed = try std.json.parseFromSlice(T, arena.allocator(), line, .{
+        const parsed = std.json.parseFromSlice(T, arena.allocator(), line, .{
             .ignore_unknown_fields = true,
-        });
+        }) catch return Error.InvalidRow;
 
         return .{
             .data = .{ .single = parsed.value },
@@ -660,18 +664,20 @@ pub const Iterator = struct {
             const parsed = std.json.parseFromSlice(T, self.allocator, line, .{ .ignore_unknown_fields = true }) catch {
                 continue;
             };
+            defer parsed.deinit();
 
             if (predicate(parsed.value)) {
                 const arena = try self.getArenaAllocator();
-                const arena_allocator = arena.allocator();
-                const cloned = try std.json.parseFromSlice(T, arena_allocator, line, .{ .ignore_unknown_fields = true });
-                parsed.deinit();
+                errdefer {
+                    arena.deinit();
+                    self.allocator.destroy(arena);
+                }
+                const cloned = std.json.parseFromSlice(T, arena.allocator(), line, .{ .ignore_unknown_fields = true }) catch return Error.InvalidRow;
                 return .{
                     .data = .{ .single = cloned.value },
                     ._arena = arena,
                 };
             }
-            parsed.deinit();
         }
         return null;
     }
