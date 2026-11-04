@@ -63,7 +63,8 @@ pub fn main() !void {
 
 test "basic connection initialization" {
     const allocator = std.testing.allocator;
-    const options = chdb_zig.ChdbConnectionOptions{ .UseMultiQuery = true };
-    const cHandle = try chdb_zig.ChdbConnection.init(allocator, options);
+    const options = chdb_zig.ConnectionOptions{ .UseMultiQuery = true };
+    const cHandle = try chdb_zig.initConnection(allocator, options);
+    defer cHandle.deinit();
     try std.testing.expect(cHandle.conn != null);
 }
