@@ -169,15 +169,10 @@ defer result.deinit();
 
 ### Add as a Dependency
 
-Add chdb-zig to your `build.zig.zon`:
+Add chdb-zig to your `build.zig.zon`; `zig fetch --save` writes the `.chdb_zig` entry with its URL and hash:
 
-```zig
-.dependencies = .{
-    .chdb_zig = .{
-        .url = "https://github.com/s0und0fs1lence/chdb-zig/archive/refs/tags/0.0.4.tar.gz",
-        .hash = "12200c7a3c6b8e9f1d2a3b4c5d6e7f8g9h0i1j2k3l4m5n6o7p8q9r0s1t2u3v4w5x6y7z8",
-    },
-},
+```sh
+zig fetch --save https://github.com/chdb-io/chdb-zig/archive/refs/tags/0.0.10.tar.gz
 ```
 
 ### Configure in build.zig
