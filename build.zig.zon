@@ -33,20 +33,20 @@
     // internet connectivity.
     .dependencies = .{
         .chdb_linux_aarch64_static = .{
-            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.1/linux-aarch64-libchdb-static.tar.gz",
-            .hash = "N-V-__8AACVcEEMlUBGbJz5kMERP1FC9625eFe214p0FAUdZ", // sha256
+            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.2/linux-aarch64-libchdb-static.tar.gz",
+            .hash = "N-V-__8AAIVlEEPhn3Y2siW_xfOfIB6mcN86yTrM2hUh0qN0", // sha256
         },
         .chdb_linux_x86_64_static = .{
-            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.1/linux-x86_64-libchdb-static.tar.gz",
-            .hash = "N-V-__8AAHXytUjT6QEhQsb40f3u4dMxMiMG4tC9-qDy_oj3", // sha256
+            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.2/linux-x86_64-libchdb-static.tar.gz",
+            .hash = "N-V-__8AAO0KtkjJpDF5MdpH9a-ssjWXD1vwNuyKLD73-QE4", // sha256
         },
         .chdb_linux_aarch64_dynamic = .{
-            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.1/linux-aarch64-libchdb.tar.gz",
-            .hash = "N-V-__8AAE0wkh0yVf9_L5gl1WKwKT7Tq1eOXrOGftiZ0mhT", // sha256
+            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.2/linux-aarch64-libchdb.tar.gz",
+            .hash = "N-V-__8AAE0wkh10e5165_3Kr6dVEdH-Pke0ON_1p24frsx-", // sha256
         },
         .chdb_linux_x86_64_dynamic = .{
-            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.1/linux-x86_64-libchdb.tar.gz",
-            .hash = "N-V-__8AAA0gzyGTs7XbP7B35t-XGv7fKyfsjFNtY_VVN9pH", // sha256
+            .url = "https://github.com/chdb-io/chdb-core/releases/download/v26.11.0-rc.2/linux-x86_64-libchdb.tar.gz",
+            .hash = "N-V-__8AAA0gzyHS7YtbY56xdRcDM9Rmbip0YDX8m_i8xgpT", // sha256
         },
         // See `zig fetch --save <url>` for a command-line interface for adding dependencies.
         //.example = .{
